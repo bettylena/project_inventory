@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-rs@e!u#xm1g-zjhqx8=5dw8(79c9#6ic!%nx!wq-66z*5q#b(6
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'tu-dominio.render.com', 
+    'project-inventory-187d.onrender.com', 
     'localhost'
 ]
 
