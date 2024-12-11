@@ -1,4 +1,11 @@
-from django.http import JsonResponse
+from rest_framework import generics
+from inventory.models import Product  # Importa el modelo de la base de datos existente
+from .serializers import ProductSerializer
 
-def product_list(request):
-    return JsonResponse({"products": []})
+class ProductListCreateView(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class ProductRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
