@@ -18,11 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from inventory.views import ProductViewSet
+from django.http import HttpResponseRedirect
+from django.contrib import admin
+from django.urls import path, include
 
 router = DefaultRouter()
 router.register(r'products', ProductViewSet, basename='product')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),  # Cambia "api.urls" según tu configuración
+    path('', lambda request: HttpResponseRedirect('/api/')),  # Redirige la raíz a /api
 ]
